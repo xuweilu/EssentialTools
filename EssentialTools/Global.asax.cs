@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Ninject;
+using EssentialTools.Infrastructure;
 
 namespace EssentialTools
 {
@@ -12,6 +14,7 @@ namespace EssentialTools
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
+            DependencyResolver.SetResolver(new NinjectDependencyResolver());
             RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
     }
