@@ -9,8 +9,22 @@ namespace EssentialTools.Models
     {
         public decimal ApplyDispcount(decimal totalParam)
         {
-
-            throw new NotImplementedException();
+            if (totalParam < 0)
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+            else if (totalParam > 100)
+            {
+                return totalParam * 0.9m;
+            }
+            else if (totalParam >= 10 && totalParam <= 100)
+            {
+                return totalParam - 5;
+            }
+            else
+            {
+                return totalParam;
+            }
         }
     }
 }
